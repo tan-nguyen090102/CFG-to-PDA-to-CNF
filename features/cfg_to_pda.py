@@ -6,13 +6,14 @@ from graphviz import Source
 class CFGToPDA:
     """Class to convert CFG to PDA"""
 
-    def __init__(self) -> None:
+    def __init__(self, file_path: str) -> None:
         self.special_characters = "!@#$%^&*()+?_=,"
+        self.file_path = file_path
 
     def storing_cfg(self):
         """Store the CFG data into a list"""
 
-        with open("test_file.txt", "r", encoding="utf-8") as input_file:
+        with open(self.file_path, "r", encoding="utf-8") as input_file:
             # Read file
             production_list = input_file.read().splitlines()
             input_file.close()
@@ -111,5 +112,5 @@ class CFGToPDA:
             dot.edge(tail_list[index], head_list[index], label=label)
 
         # Display PDA file
-        s = Source(dot.source, filename="pda.gv", format="pdf")
+        s = Source(dot.source, filename="result_pda.gv", format="pdf")
         s.view()

@@ -1,0 +1,65 @@
+// The Push-down Automata
+digraph "pda-graph" {
+	graph [nodesep=0.5 overlap=scale rankdir=LR ranksep=2.5 splines=true]
+	node [shape=circle]
+	hidden [label="" shape=plaintext]
+	hidden -> 1
+	node [shape=circle]
+	1
+	node [shape=circle]
+	2
+	node [shape=circle]
+	3
+	node [shape=circle]
+	4
+	node [shape=circle]
+	5
+	node [shape=circle]
+	7
+	node [shape=circle]
+	8
+	node [shape=circle]
+	10
+	node [shape=circle]
+	12
+	node [shape=circle]
+	14
+	node [shape=circle]
+	15
+	node [shape=circle]
+	17
+	node [shape=circle]
+	18
+	node [shape=circle]
+	20
+	node [shape=circle]
+	21
+	node [shape=doublecircle]
+	22
+	1 -> 2 [label="*, +!"]
+	2 -> 3 [label="*, +S"]
+	3 -> 3 [label="n, -n"]
+	3 -> 3 [label="d, -d"]
+	3 -> 3 [label="p, -p"]
+	3 -> 3 [label="v, -v"]
+	3 -> 4 [label="*, -S"]
+	4 -> 5 [label="*, +N"]
+	5 -> 3 [label="*, +V"]
+	3 -> 7 [label="*, -S"]
+	7 -> 8 [label="*, +S"]
+	8 -> 3 [label="*, +P"]
+	3 -> 10 [label="*, -N"]
+	10 -> 3 [label="*, +n"]
+	3 -> 12 [label="*, -N"]
+	12 -> 3 [label="*, +d"]
+	3 -> 14 [label="*, -N"]
+	14 -> 15 [label="*, +N"]
+	15 -> 3 [label="*, +P"]
+	3 -> 17 [label="*, -P"]
+	17 -> 18 [label="*, +p"]
+	18 -> 3 [label="*, +N"]
+	3 -> 20 [label="*, -V"]
+	20 -> 21 [label="*, +v"]
+	21 -> 3 [label="*, +N"]
+	3 -> 22 [label="*, -!"]
+}
