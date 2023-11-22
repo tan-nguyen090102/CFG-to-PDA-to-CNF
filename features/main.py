@@ -7,9 +7,9 @@ cnf_conversion = CFGToCNF("tests/test_cnf.txt")
 
 if __name__ == "__main__":
     # Convert CFG to PDA
-    # productions = pda_conversion.storing_cfg()
-    # nodes = pda_conversion.storing_pda(production_list=productions)
-    # pda_conversion.graphing_pda(node_list=nodes)
+    productions = pda_conversion.storing_cfg()
+    nodes = pda_conversion.storing_pda(production_list=productions)
+    pda_conversion.graphing_pda(node_list=nodes)
 
     # Convert CFG to CNF
     productions = cnf_conversion.storing_cfg()
