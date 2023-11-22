@@ -1,0 +1,27 @@
+// The Push-down Automata
+digraph "pda-graph" {
+	graph [nodesep=0.5 rankdir=LR]
+	node [shape=circle]
+	1
+	2
+	3
+	1 -> 2 [label="*,+!"]
+	2 -> 3 [label="*,+S"]
+	3 -> 3 [label="b,-b"]
+	3 -> 3 [label="e,-e"]
+	3 -> 3 [label="b,-b"]
+	3 -> 3 [label="e,-e"]
+	3 -> 4 [label="*,-S"]
+	4 -> 5 [label="*,+S"]
+	5 -> 3 [label="*,+A"]
+	3 -> 7 [label="*,-S"]
+	7 -> 3 [label="*,+A"]
+	3 -> 9 [label="*,-A"]
+	9 -> 10 [label="*,+b"]
+	10 -> 11 [label="*,+S"]
+	11 -> 3 [label="*,+e"]
+	3 -> 13 [label="*,-A"]
+	13 -> 14 [label="*,+b"]
+	14 -> 3 [label="*,+e"]
+	3 -> 15 [label="*,-!"]
+}
