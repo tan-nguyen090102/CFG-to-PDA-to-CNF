@@ -1,8 +1,8 @@
-E -> E+T 
+E -> E+T
 E -> T
-E -> aFb 
+E -> aFbk 
 T -> T*F 
-T -> F
+T -> FT
 T -> tFt
 F -> (E)
 F -> a
