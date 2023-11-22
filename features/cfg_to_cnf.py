@@ -2,7 +2,7 @@ class CFGToCNF:
     """Class to convert CFG to CNF"""
 
     def __init__(self, file_path: str) -> None:
-        self.special_characters = "!@#$%^&*()+?_=,"
+        self.special_characters = "!@#$%^&*()+?_=/,"
         self.file_path = file_path
 
     def storing_cfg(self):
@@ -57,7 +57,7 @@ class CFGToCNF:
                         production_list.append(new_production)
                         production_list.remove(middle_production)
                         continue
-        production_list.remove(item)
+                production_list.remove(item)
 
         # Then, perform unit production reduction
         indirect_list = []
@@ -133,6 +133,7 @@ class CFGToCNF:
         # Then, split multiple terminal productions into single ones
         count = 1
         removed_production.clear()
+        add_production: list[str] = []
         for item in production_list:
             total = item.split("->")
             left_non_terminal = total[0].strip()
@@ -147,17 +148,17 @@ class CFGToCNF:
                     cnf_list.append(new_production)
 
                 removed_production.append(item)
-                cnf_list.append(new_main_production)
+                add_production.append(new_main_production)
 
         cnf_list = list(set(cnf_list))
+        production_list.extend(add_production)
         production_list = [
             item for item in production_list if item not in removed_production
         ]
-        removed_production.clear()
 
         # Then, turns any terminal into terminal production
         removed_production.clear()
-        add_production: list[str] = []
+        add_production.clear()
         in_change = False
         for item in production_list:
             total = item.split("->")
@@ -177,8 +178,19 @@ class CFGToCNF:
                     right_non_terminal = new_main_production.split("->")[1].strip()
 
             if in_change is True:
-                add_production.append(new_main_production)
-                removed_production.append(item)
+                if (
+                    len(
+                        "".join(
+                            char for char in right_non_terminal if not char.isdigit()
+                        )
+                    )
+                    == 2
+                ):
+                    cnf_list.append(new_main_production)
+                    removed_production.append(item)
+                else:
+                    add_production.append(new_main_production)
+                    removed_production.append(item)
 
         production_list = [
             item for item in production_list if item not in removed_production
@@ -361,7 +373,7 @@ class CFGToCNF:
     def printing_cnf(self, cnf_list: list[str]):
         """Print out the CNF"""
 
-        with open("result_cnf.txt", "w", encoding="utf-8") as output_file:
+        with open("tests/result_cnf.txt", "w", encoding="utf-8") as output_file:
             for item in cnf_list:
                 output_file.write(item + "\n")
 

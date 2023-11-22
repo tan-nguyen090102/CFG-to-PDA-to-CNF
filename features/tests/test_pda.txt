@@ -1,0 +1,9 @@
+S -> S+T
+S -> S_T
+S -> S*T
+S -> S/T
+T -> (S)
+S -> T
+T -> x
+T -> y
+T -> z

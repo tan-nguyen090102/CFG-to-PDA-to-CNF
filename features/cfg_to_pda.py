@@ -7,7 +7,7 @@ class CFGToPDA:
     """Class to convert CFG to PDA"""
 
     def __init__(self, file_path: str) -> None:
-        self.special_characters = "!@#$%^&*()+?_=,"
+        self.special_characters = "!@#$%^&*()[]+?_=,"
         self.file_path = file_path
 
     def storing_cfg(self):

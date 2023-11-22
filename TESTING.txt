@@ -1,0 +1,211 @@
+All the test files are in the folder /tests
+CFG to PDA tests:
+Test 1:
+    S -> NV
+    S -> SP
+    N -> n
+    N -> d
+    N -> NP
+    P -> pN
+    V -> vN
+
+Result: result_pda_1.gv.pdf, result_pda_1.gv
+
+Test 2:
+    S -> E
+    S -> S+S
+    S -> S*S
+    S -> (E)
+    E -> a
+    E -> b
+    E -> Ea
+    E -> Eb
+    E -> E0
+    E -> E1
+
+Result: result_pda_2.gv.pdf, result_pda_2.gv
+
+Test 3:
+    S -> SS
+    S -> A
+    A -> aAa
+    A -> bB
+    B -> bB
+    B -> 
+
+Result: result_pda_3.gv.pdf, result_pda_3.gv
+
+Test 4:
+    S -> SS
+    S -> ()
+    S -> (S)
+    S -> []
+    S -> [S]
+
+Result: result_pda_4.gv.pdf, result_pda_4.gv
+
+Test 5:
+    S -> S+T
+    S -> S_T
+    S -> S*T
+    S -> S/T
+    T -> (S)
+    S -> T
+    T -> x
+    T -> y
+    T -> z
+
+Result: result_pda_5.gv.pdf, result_pda_5.gv
+
+CFG to CNF tests:
+Test 1:
+    E -> E+T
+    E -> T
+    E -> aFbk 
+    T -> T*F 
+    T -> FT
+    T -> tFt
+    F -> (E)
+    F -> a
+    F -> b
+    F -> c
+    F -> 
+
+Result:
+    F -> a
+    F -> c
+    T -> Z2Z3
+    T -> FT
+    Z2 -> t
+    Z3 -> t
+    F -> b
+    Z4 -> +
+    Z5 -> a
+    Z6 -> b
+    Z7 -> k
+    Z8 -> *
+    Z9 -> (
+    Z10 -> )
+    E -> EZ11
+    Z11 -> Z4T
+    E -> Z5Z12
+    T -> TZ13
+    Z13 -> Z8F
+    F -> Z9Z14
+    Z14 -> EZ10
+    Z12 -> FZ15
+    Z15 -> Z6Z7
+
+Test 2:
+    S -> S+T
+    S -> S_T
+    S -> S*T
+    S -> S/T
+    T -> (S)
+    S -> T
+    T -> x
+    T -> y
+    T -> z
+
+Result:
+    T -> z
+    T -> y
+    T -> x
+    Z2 -> +
+    Z3 -> _
+    Z4 -> *
+    Z5 -> /
+    Z6 -> (
+    Z7 -> )
+    S -> SZ8
+    Z8 -> Z2T
+    S -> SZ9
+    Z9 -> Z3T
+    S -> SZ10
+    Z10 -> Z4T
+    S -> SZ11
+    Z11 -> Z5T
+    T -> Z6Z12
+    Z12 -> SZ7
+
+Test 3: Original test has x is 0 and y is 1. Change number because of limitation.
+    S -> O
+    S -> I
+    O -> ExO
+    O -> ExE
+    I -> EyI
+    I -> EyE
+    E -> xEyE
+    E -> yExE
+    E -> 
+
+Result:
+    Z2 -> x
+    Z3 -> x
+    Z4 -> y
+    Z5 -> y
+    Z6 -> x
+    Z7 -> y
+    Z8 -> y
+    Z9 -> x
+    O -> EZ10
+    Z10 -> Z2O
+    O -> EZ11
+    Z11 -> Z3E
+    I -> EZ12
+    Z12 -> Z4I
+    I -> EZ13
+    Z13 -> Z5E
+    E -> Z6Z14
+    E -> Z8Z15
+    Z14 -> EZ16
+    Z16 -> Z7E
+    Z15 -> EZ17
+    Z17 -> Z9E
+
+Test 4:
+    S -> EA
+    S -> XB
+    A -> YA
+    A -> AT
+    B -> XB
+    B -> ET
+    E -> XM
+    M -> EN
+    N -> YZ
+    T -> r
+    Z -> e
+
+Result:
+    S -> XB
+    B -> ET
+    T -> r
+    M -> EN
+    S -> EA
+    B -> XB
+    E -> XM
+    Z -> e
+    N -> YZ
+    A -> YA
+    A -> AT
+
+Test 5:
+    S -> ABa
+    A -> aab
+    B -> Ac
+
+Result:
+    Z4 -> b
+    Z3 -> a
+    Z2 -> a
+    Z5 -> a
+    Z6 -> c
+    B -> AZ6
+    S -> AZ7
+    Z7 -> BZ5
+    A -> Z2Z8
+    Z8 -> Z3Z4
+
+
+
+
